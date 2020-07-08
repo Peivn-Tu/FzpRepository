@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>人力资源管理系统</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.tabfont01 {	
+	font-family: "宋体";
+	font-size: 9px;
+	color: #555555;
+	text-decoration: none;
+	text-align: center;
+}
+.font051 {font-family: "宋体";
+	font-size: 12px;
+	color: #333333;
+	text-decoration: none;
+	line-height: 20px;
+}
+.font201 {font-family: "宋体";
+	font-size: 12px;
+	color: #FF0000;
+	text-decoration: none;
+}
+.button {
+	font-family: "宋体";
+	font-size: 14px;
+	height: 37px;
+}
+html { overflow-x: auto; overflow-y: auto; border:0;} 
+-->
+</style>
+
+<link href="/css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/JavaScript">
+
+</script>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  
+  <tr>
+    <td height="30">      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="62" background="images/nav04.gif">&nbsp;</td>
+        </tr>
+    </table></td></tr>
+  <tr>
+    <td><table id="subtree1" style="DISPLAY: " width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+          	 <tr>
+               <td height="20"><span class="newfont07"></span></td>
+          	 </tr>
+              <tr>
+                <td height="40" class="font42">
+				<table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
+				 <tr class="CTitle" >
+                    	<td height="22" colspan="8" align="center" style="font-size:16px">
+</td>
+                  </tr>
+                  <tr bgcolor="#EEEEEE">
+				        <td height="22" align="center" >培训名称</td>
+						<td height="22" align="center" >讲师</td>
+						<td height="22" align="center" >培训人员</td>
+						<td height="22" align="center" >开始时间</td>
+						<td height="22" align="center" >结束时间</td>
+						<td height="22" align="center" >执行操作</td>
+                  </tr>
+
+				  <tr th:each="ed,statr:${list}"  bgcolor="#FFFFFF">
+					<td height="22" align="center" th:text="${ed.edName}" ></td>
+					<td height="22" align="center" th:text="${ed.teacher}"></td>
+					<td height="22" align="center" th:text="${ed.student}"></td>
+					<td height="22" align="center" th:text="${ed.begintime}"></td>
+					<td height="22" align="center" th:text="${ed.endtime}"></td>
+					<td height="22" align="center" >
+						<form action="/educate/detail" method="post">
+							<input type="hidden" name="id" th:value="${ed.id}" />
+							<input type="submit" value="详细" style="position: relative;left:-45px;top: 20px" />
+						</form>
+						<form action="/educate/del" method="post">
+							<input type="hidden" name="id" th:value="${ed.id}" />
+							<input type="submit" value="删除" style="position: relative;left: 0px;top: -3px" />
+						</form>
+						<form action="/educate/off" method="post">
+							<input type="hidden" name="isstock" value="1" />
+							<input type="hidden" name="id" th:value="${ed.id}" />
+							<input type="submit" value="培训完成" style="position: relative;left: 60px;top: -26px" />
+						</form>
+					</td>
+				  </tr>
+
+				  <tr  bgcolor="#FFFFFF">
+					<td height="22" colspan="6" align="center" >人才资源系统---培新信息查看</td>
+				  </tr>
+
+            </table></td>
+        </tr>
+      </table>
+          </td>
+        </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>人力资源管理系统</title>
+<link rel="stylesheet" rev="stylesheet" href="/css/style.css " type="text/css" media="all" />
+<script type="text/javascript" src="/Js/typem.js"></script>
+<script type="text/javascript" src="/Js/js.js"></script>
+<style type="text/css">
+<!--
+.atten {font-size:12px;font-weight:normal;color:#F00;}
+-->
+</style>
+</head>
+<body class="ContentBody">
+ <form name="institutionForm" method="post" action="/institution/modification" onSubmit="return institutionValidate()">
+<div class="MainDiv">
+<table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
+  <tr>
+      <th class="tablestyle_title" >修改奖惩信息</th>
+  </tr>
+
+  <tr>
+    <td class="CPanel">
+		<table border="0" cellpadding="0" cellspacing="0" style="width:80%" align="center">
+		<tr>
+			<td align="left">
+			<input type="submit"value="保存" class="button"/>　
+			<input type="reset" value="返回" class="button"/>
+			</td>
+		</tr>
+		<tr>
+			<td width="100%">
+				<fieldset style="height:100%;">
+				<legend>修改奖惩信息</legend>
+						<input type="hidden" name="id" th:value="${instutition.id}"/>
+					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
+					  <tr>
+					    <td nowrap align="right" width="11%">奖惩名称：</td>
+					    <td width="89%"><input name="inName" type="text" class="input" th:value="${instutition.inName}"/>
+						<span class="red">*</span></td>
+					    </tr>
+					  <tr>
+					    <td nowrap align="right" width="11%">奖惩原因：</td>
+					    <td><input name="reason" type="text" class="input" th:value="${instutition.reason}"/>
+						<span class="red">*</span></td>
+					    </tr>
+					    
+					  <tr>
+					    <td width="11%" nowrap align="right">奖惩说明：</td>
+					    <td><textarea name="explains" cols="100" rows="6" class="input" id="explain" th:value="${instutition.explains}"></textarea></td>
+					  </tr>
+					  </table>
+				</fieldset>			
+				</td>
+			
+		</tr>
+		</table>
+	</td>
+ 	</tr>
+	<tr>
+		<td colspan="2" align="center" height="50px">
+		<input name="提交" type="submit" class="button" value="保存"/>　
+		
+		<input name="重置" type="reset" class="button" value="重置"/></TD>
+	</tr>
+
+	  <tr>
+	    <td height="22" colspan="2" align="center" >人力资源系统---修改奖惩信息</td>
+	  </tr>
+
+</tabel>
+</table>
+</div>
+</form>	
+</body>
+</html>
+

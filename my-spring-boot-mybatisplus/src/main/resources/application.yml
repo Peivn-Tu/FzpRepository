@@ -1,0 +1,33 @@
+server:
+  port: 8080
+spring:
+#  mvc:
+#    static-path-pattern: /static/**
+#  thymeleaf:
+#    prefix: /templates/
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_hr?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+
+    username: root
+    password: newpassword
+
+mybatis-plus:
+
+
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      db_type: mysql
+  configuration:
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml
+
+
+
+
+

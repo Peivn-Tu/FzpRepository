@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>人力资源管理系统</title>
+<link rel="stylesheet" rev="stylesheet" href="/css/style.css " type="text/css" media="all" />
+<script type="text/javascript" src="/Js/typem.js"></script>
+<script type="text/javascript" src="/Js/js.js"></script>
+<style type="text/css">
+<!--
+.atten {font-size:12px;font-weight:normal;color:#F00;}
+-->
+</style>
+</head>
+<body class="ContentBody">
+<form name="stipendForm" method="post" action="/stipend/modification" onSubmit="return stipendValidate();" >
+<div class="MainDiv">
+<table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
+  <tr>
+      <th class="tablestyle_title" >薪金数据更新</th>
+  </tr>
+  <tr>
+    <td class="CPanel">
+		<table border="0" cellpadding="0" cellspacing="0" style="width:80%" align="center">
+		<tr><td align="left">
+			<input type="submit"value="更新" class="button"/>　
+			<input type="reset" value="返回" class="button"/>
+			</td>
+		</tr>
+		<tr>
+			<td width="100%">
+				<fieldset style="height:100%;">
+				<legend>薪金数据</legend>
+					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
+					  <tr th:each="sp,star:${stipendList}">
+						<input type="hidden" name="id" th:value="${sp.id}"/>
+					    <td nowrap align="right" width="9%">员工姓名：</td>
+					    <td width="36%"><input name="spName" type="text" class="input" th:value="${sp.spName}"/>
+						<span class="red">*</span></td>
+					    <td width="12%"><div align="right">基本薪金：</div></td>
+					    <td width="43%"><input name="basic" type="text" class="input" id="basic" th:value="${sp.basic}" />
+					      <span class="red">*</span></tr>
+					  <tr th:each="sp,star:${stipendList}">
+					    <td nowrap align="right" width="9%">饭补：</td>
+					    <td><input name="eat" type="text" class="input" id="eat" th:value="${sp.eat}"/></td>
+					    <td><div align="right">房补：</div></td>
+					    <td><input name="house" type="text" class="input" id="house"  th:value="${sp.house}"/></td>
+					  </tr>
+					  <tr th:each="sp,star:${stipendList}">
+					    <td nowrap align="right">全勤奖：</td>
+					    <td><input name="duty" type="text" class="input" id="duty" th:value="${sp.scot}"></td>
+					    <td><div align="right">赋税：</div></td>
+					    <td><input name="scot" type="text" class="input" id="scot"  th:value="${sp.duty}"/></td>
+					    </tr>
+					  <tr th:each="sp,star:${stipendList}">
+					    <td nowrap align="right">额外补助：</td>
+					    <td><input name="other" type="text" class="input" id="other"  th:value="${sp.other}"/></td>
+					    <td><div align="right">罚款：</div></td>
+					    <td><input name="punishment" type="text" class="input" id="punishment"  th:value="${sp.punishment}"></td>
+					    </tr>
+					  <tr th:each="sp,star:${stipendList}">
+					    <td nowrap align="right">发放时间：</td>
+					    <td><input name="granttime" type="text" class="input" id="granttime" th:value="${sp.granttime}">
+				        <span class="red">*</span></td>
+					    <td colspan="2"><div align="left">注：金钱单位（元/RMB）</div></td>
+					    </tr>
+					  </table>
+				</fieldset>		
+			</td>
+		</tr>
+	<tr>
+		<td colspan="2" align="center" height="50px">
+		<input name="更新" type="submit" class="button" value="更新"/>　
+		<input name="重置" type="reset" class="button" value="重置"/>
+		</td>
+	</tr>
+	  <tr>
+	    <td height="22" colspan="4" align="center" >该信息不存在！！！</td>
+	  </tr>
+	</tabel>
+</table>
+</body>
+</html>
+
